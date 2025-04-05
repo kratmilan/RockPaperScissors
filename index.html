@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getComputerChoice() {
+            let number= Math.floor(Math.random() * 3);
+            return number;
+            }
+        function getHumanChoice() {
+            let answer = prompt( "Rock, Paper or Scissors?" );
+            answer = answer.toLowerCase() 
+            if (answer=="rock") {answer = 0 }
+            else if (answer=="paper") {answer = 1 }
+            else if (answer=="scissors") {answer = 2 }
+            if(answer===""){getHumanChoice()}
+            return answer
+        }
+
+        let humanScore = 0;
+        let computerScore = 0;
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        function playRound(HumanChoice,ComputerChoice) {
+            if (HumanChoice == ComputerChoice) {console.log("Tie!")}
+            if (HumanChoice == 0){
+                if(ComputerChoice==1) {console.log("You Lose! Paper beats Rock!"); computerScore++;}
+                else if (ComputerChoice==2) {console.log("You Win! Rock beats Scissors!"); humanScore++;}
+            }
+            else if(HumanChoice == 1){
+                if (ComputerChoice==0) {{console.log("You Win! Paper beats Rock!"); humanScore++;}}
+                else if (ComputerChoice==2) {{console.log("You Lose! Scissors beats Paper!"); computerScore++;}}
+            }
+            else if (HumanChoice == 2 ) {
+                if(ComputerChoice == 0) {console.log("You Lose! Rock beats Scissors!"); computerScore++;}
+                else if (ComputerChoice == 1) {console.log("You Win! Scissors beats Paper!"); humanScore++;}
+            }
+            
+        }
+        playRound(humanSelection,computerSelection)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
